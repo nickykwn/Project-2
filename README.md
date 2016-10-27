@@ -14,5 +14,5 @@ As a registered use
 * Bullet You can build decks to see how much average mana cost the deck would be
 * Bullet Users can display their current trophy level and arena they are in
 
-## Wireframe 
-
+## Wireframes
+![Register and Login](/Users/Nicky/Desktop/Project 2 Wireframes/Login_Page.png)
