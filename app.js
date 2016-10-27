@@ -3,6 +3,9 @@ const logger          = require('morgan');
 const path            = require('path');
 const bodyParser      = require('body-parser');
 const methodOverride  = require('method-override');
+const dbService       = require('./models/clash');
+const { findCard }    = require('./services/clash');
+const cardroutes      = require('./routes/cardroutes');
 
 const app             = express();
 const port            = process.argv[2] || process.env.PORT || 3000;
@@ -15,6 +18,13 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(logger('dev'));
+app.use('/', cardroutes);
+
+// app.post('/', dbService.findCard, (req, res) =>{
+//   res.render('index', {
+//     results: res.results || [];
+//   });
+// });
 
 app.listen(port, console.log('Server is listening on port ', port));
 

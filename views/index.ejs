@@ -5,5 +5,16 @@
 </head>
 <body>
   <h1>Clash Royale</h1>
+  <div class="container">
+  <% results.forEach(function(x) { %>
+  <div class="card">
+  <p><%= x.name %></p>
+  <p>Rarity: <%= x.rarity %></p>
+  <p>Type: <%= x.type %></p>
+  <p><%= x.description %></p>
+  <p>Arena: <%= x.arena %></p>
+  <p>Elixir Cost: <%= x.elixirCost %></p>
+  <% }) %>
+  </div>
 </body>
 </html>
