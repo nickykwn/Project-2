@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/nickykwn/Project-2#readme",
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "ejs": "^2.5.2",
     "node-fetch": "^1.6.3"
   }
