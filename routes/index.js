@@ -12,8 +12,8 @@ indexRouter.get('/login', (req, res) => {
   res.render('login');
 });
 
-indexRouter.get('/signup', (req, res) => {
-  res.render('signup');
+indexRouter.get('/register', (req, res) => {
+  res.render('register');
 });
 
 module.exports = indexRouter;

@@ -1,9 +1,6 @@
-/* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
-/* eslint no-param-reassign: ["error", { "props": false }] */
-
 const { ObjectID } = require('mongodb');
-const { getDB }    = require('../lib/dbConnect.js');
-const bcrypt       = require('bcryptjs');
+const { getDB } = require('../lib/dbConnect.js');
+const bcrypt = require('bcryptjs');
 
 const SALTROUNDS = 10;
 
@@ -28,15 +25,15 @@ function createUser(req, res, next) {
   });
 }
 
-function getUserById(id) {
+function getUserByID(id) {
   return getDB().then((db) => {
     const promise = new Promise((resolve, reject) => {
-      db.collection('users')
-        .findOne({ _id: ObjectID(id) }, (findError, user) => {
-          if (findError) reject(findError);
-          db.close();
-          resolve(user);
-        });
+      db.colelction('users')
+      .findOne({ _id: ObjectID(id) }, (findError, user) => {
+        if (findError) reject(findError);
+        db.close();
+        resolve(user);
+      });
     });
     return promise;
   });
@@ -45,7 +42,7 @@ function getUserById(id) {
 function getUserByUsername(username) {
   return getDB().then((db) => {
     const promise = new Promise((resolve, reject) => {
-      db.collection('users')
+      dbcollection('users')
         .findOne({ username }, (findError, user) => {
           if (findError) reject(findError);
           db.close();
@@ -58,6 +55,6 @@ function getUserByUsername(username) {
 
 module.exports = {
   createUser,
-  getUserById,
+  getUserByID,
   getUserByUsername
 };

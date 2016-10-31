@@ -10,9 +10,10 @@ const indexRouter     = require('./routes/index');
 const authRouter      = require('./routes/auth');
 const usersRouter     = require('./routes/users');
 const { findCard }    = require('./services/clash');
-const cardroutes      = require('./routes/cardroutes');
+const cardsRouter     = require('./routes/cardroutes');
 
 const app             = express();
+const SECRET          = 'tacos3000';
 const port            = process.argv[2] || process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
@@ -37,12 +38,13 @@ app.use(cookieParser());
 app.use(session({
   resave: false,
   saveUninitalized: false,
-}))
+  secret: SECRET
+}));
 
-app.use('/', cardroutes);
+app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
-app.use('/music', musicRouter);
+app.use('/cardroutes', cardsRouter);
 
 app.listen(port, console.log('Server is listening on port ', port));
 
