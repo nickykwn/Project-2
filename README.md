@@ -15,4 +15,3 @@ As a registered use
 * Bullet Users can display their current trophy level and arena they are in
 
 ## Wireframes
-![Register and Login](/Users/Nicky/Desktop/Project 2 Wireframes/Login_Page.png)
