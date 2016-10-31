@@ -1,8 +1,8 @@
-const { ObjectID } = require('mongodb');
-const { getDB } = require('../lib/dbConnect.js');
-const bcrypt = require('bcryptjs');
+const { ObjectID }      = require('mongodb');
+const { getDB }         = require('../lib/dbConnect.js');
+const bcrypt            = require('bcryptjs');
 
-const SALTROUNDS = 10;
+const SALTROUNDS        = 10;
 
 function createUser(req, res, next) {
   const userObject = {
