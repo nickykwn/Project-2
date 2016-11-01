@@ -6,7 +6,7 @@
 //   MongoClient.connect(dbConnection, (err, db) => {
 //     if (err) return next(err);
 
-//     db.colelction('cards')
+//     db.collection('cards')
 //       .find({})
 //       // .sort()
 //       .toArray((arrayError, data) => {

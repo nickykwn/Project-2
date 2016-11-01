@@ -7,18 +7,19 @@ const SALTROUNDS        = 10;
 function createUser(req, res, next) {
   const userObject = {
     username: req.body.user.username,
-    email: req.body.user.email,
+    // email: req.body.user.email,
 
     // Store hashed password
     password: bcrypt.hashSync(req.body.user.password, SALTROUNDS)
   };
-
+  console.log(userObject);
   getDB().then((db) => {
     db.collection('users')
       .insert(userObject, (insertErr, dbUser) => {
         if (insertErr) return next(insertErr);
 
         res.user = dbUser;
+        console.log(res.user);
         db.close();
         return next();
       });
@@ -28,7 +29,7 @@ function createUser(req, res, next) {
 function getUserByID(id) {
   return getDB().then((db) => {
     const promise = new Promise((resolve, reject) => {
-      db.colelction('users')
+      db.collection('users')
       .findOne({ _id: ObjectID(id) }, (findError, user) => {
         if (findError) reject(findError);
         db.close();
@@ -42,7 +43,7 @@ function getUserByID(id) {
 function getUserByUsername(username) {
   return getDB().then((db) => {
     const promise = new Promise((resolve, reject) => {
-      dbcollection('users')
+      db.collection('users')
         .findOne({ username }, (findError, user) => {
           if (findError) reject(findError);
           db.close();

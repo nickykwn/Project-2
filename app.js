@@ -9,8 +9,7 @@ const methodOverride  = require('method-override');
 const indexRouter     = require('./routes/index');
 const authRouter      = require('./routes/auth');
 const usersRouter     = require('./routes/users');
-const { findCard }    = require('./services/clash');
-const cardsRouter     = require('./routes/cardroutes');
+const cardsRouter     = require('./routes/card');
 
 const app             = express();
 const SECRET          = 'tacos3000';
@@ -37,14 +36,14 @@ app.use(cookieParser());
 
 app.use(session({
   resave: false,
-  saveUninitalized: false,
+  saveUninitialized: false,
   secret: SECRET
 }));
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
-app.use('/cardroutes', cardsRouter);
+app.use('/card', cardsRouter);
 
 app.listen(port, console.log('Server is listening on port ', port));
 
