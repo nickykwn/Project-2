@@ -14,7 +14,7 @@ const { saveFavoriteDeck,
 // });
 
 router.get('/', authenticate, getFavoriteDeck, (req, res) => {
-  res.render('card/index', {
+  res.render('/card', {
     user: res.user,
     results: res.results || [],
     favorites: res.favorites || []
@@ -22,7 +22,7 @@ router.get('/', authenticate, getFavoriteDeck, (req, res) => {
 });
 
 router.post('/search', authenticate, findCard, getFavoriteDeck, (req, res) => {
-  res.render('card/index', {
+  res.render('/card', {
     user: res.user,
     results: res.results || [],
     favorites: res.favorites || []

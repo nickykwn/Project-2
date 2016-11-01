@@ -1,40 +1,42 @@
-const { ObjectID }      = require('mongodb');
-const { getDB }         = require('../lib/dbConnect.js');
-const bcrypt            = require('bcryptjs');
+/* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
+/* eslint no-param-reassign: ["error", { "props": false }] */
 
-const SALTROUNDS        = 10;
+const { ObjectID } = require('mongodb');
+const { getDB }    = require('../lib/dbConnect.js');
+const bcrypt       = require('bcryptjs');
+
+const SALTROUNDS = 10;
 
 function createUser(req, res, next) {
   const userObject = {
     username: req.body.user.username,
-    // email: req.body.user.email,
+    email: req.body.user.email,
 
     // Store hashed password
     password: bcrypt.hashSync(req.body.user.password, SALTROUNDS)
   };
-  console.log(userObject);
+
   getDB().then((db) => {
     db.collection('users')
       .insert(userObject, (insertErr, dbUser) => {
         if (insertErr) return next(insertErr);
 
         res.user = dbUser;
-        console.log(res.user);
         db.close();
         return next();
       });
   });
 }
 
-function getUserByID(id) {
+function getUserById(id) {
   return getDB().then((db) => {
     const promise = new Promise((resolve, reject) => {
       db.collection('users')
-      .findOne({ _id: ObjectID(id) }, (findError, user) => {
-        if (findError) reject(findError);
-        db.close();
-        resolve(user);
-      });
+        .findOne({ _id: ObjectID(id) }, (findError, user) => {
+          if (findError) reject(findError);
+          db.close();
+          resolve(user);
+        });
     });
     return promise;
   });
@@ -56,6 +58,6 @@ function getUserByUsername(username) {
 
 module.exports = {
   createUser,
-  getUserByID,
+  getUserById,
   getUserByUsername
 };

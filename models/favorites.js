@@ -1,12 +1,12 @@
-const { ObjectID }     = require('mongodb');
-const { getDB }         = require('../lib/dbConnect.js');
+const { ObjectID } = require('mongodb');
+const { getDB }    = require('../lib/dbConnect.js');
 
-// const DB_CONNECTION = 'mongodb://localhost:27017/clashroyale';
+// const DB_CONNECTION = 'mongodb://localhost:27017/itunescrud';
 
 function getFavoriteDeck(req, res, next) {
-  //find favorite deck for your userID
+  // find all favorites for your userId
   getDB().then((db) => {
-    db.colelction('favorites')
+    db.collection('favorites')
       .find({ userId: { $eq: req.session.userId } })
       .toArray((toArrErr, data) => {
         if(toArrErr) return next(toArrErr);
@@ -45,11 +45,11 @@ function saveFavoriteDeck(req, res, next) {
 }
 
 // Delete method doesn't change because we are deleting objects from the database
-// based on that object's unique _id - you do not need to specify which users as
+// based on that object's unique _id - you do not need to specify which user as
 // the _id is sufficient enough
 function deleteFavoriteDeck(req, res, next) {
   getDB().then((db) => {
-    db.colelction('favorites')
+    db.collection('favorites')
       .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, result) => {
         if (removeErr) return next(removeErr);
         res.removed = result;

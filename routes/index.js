@@ -12,6 +12,7 @@ indexRouter.get('/login', (req, res) => {
   res.render('login');
 });
 
+// This route serves your `/signup` form
 indexRouter.get('/register', (req, res) => {
   res.render('register');
 });
