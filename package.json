@@ -2,8 +2,8 @@
   "name": "project-2",
   "version": "1.0.0",
   "description": "",
-  "engine": {
-    "node": "6.6.0"
+  "engines": {
+    "node": "7.0.0"
   },
   "main": "app.js",
   "scripts": {
