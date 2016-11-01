@@ -1,0 +1,23 @@
+body {
+  background-color: blue;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+}
+
+.images {
+  width: 120px;
+  height: 140px;
+}
