@@ -6,7 +6,7 @@ This app provides deck building for players of Clash Royale and information on a
 
 ## User functionality 
 As a guest
-* You can look up other users decks
+* You can look up other users trophies level
 * Card descriptions in the game can be found
 
 As a registered use
