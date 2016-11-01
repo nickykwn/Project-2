@@ -5,13 +5,13 @@ const { saveFavoriteDeck,
         deleteFavoriteDeck,
         getFavoriteDeck }   = require('../models/favorites');
 
-// router.get('/', findCard, (req, res) => {
-//   console.log(res.results);
-//   console.log(res.images);
-//   res.render('card', {
-//     results: res.results
-//   });
-// });
+router.get('/', findCard, (req, res) => {
+  console.log(res.results);
+  console.log(res.images);
+  res.render('card', {
+    results: res.results
+  });
+});
 
 router.get('/', authenticate, getFavoriteDeck, (req, res) => {
   res.render('/card', {
@@ -21,7 +21,7 @@ router.get('/', authenticate, getFavoriteDeck, (req, res) => {
   });
 });
 
-router.post('/search', authenticate, findCard, getFavoriteDeck, (req, res) => {
+router.post('/', authenticate, findCard, getFavoriteDeck, (req, res) => {
   res.render('/card', {
     user: res.user,
     results: res.results || [],

@@ -3,6 +3,7 @@
 const express      = require('express');
 const { createUser }    = require('../models/users.js');
 const { authenticate }   = require('../lib/auth');
+const { findCard }       = require('../services/clash');
 
 const usersRouter  = express.Router();
 
