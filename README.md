@@ -6,13 +6,13 @@ This app provides deck building for players of Clash Royale and information on a
 
 ## User functionality 
 As a guest
-* Bullet You can look up other users decks
-* Bullet Card descriptions in the game can be found
+* You can look up other users decks
+* Card descriptions in the game can be found
 
 As a registered use
-* Bullet Users can save their decks currently in use
-* Bullet You can build decks to see how much average mana cost the deck would be
-* Bullet Users can display their current trophy level and arena they are in
+* Users can save their decks currently in use
+* You can build decks to see how much average mana cost the deck would be
+* Users can display their current trophy level and arena they are in
 
 Wireframes:
 
